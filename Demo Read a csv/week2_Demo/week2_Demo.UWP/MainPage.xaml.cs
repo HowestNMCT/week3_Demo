@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace week2_Demo.UWP
+namespace Demo_ReadCsv.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace week2_Demo.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new week2_Demo.App());
+            LoadApplication(new Demo_ReadCsv.App());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace week2_Demo.Model
+namespace Demo_ReadCsv.Model
 {
     //make class public
     public class Beer
@@ -81,15 +81,20 @@ namespace week2_Demo.Model
             //    new Beer("Duvel", "Duvel Moortgat", 8.5, "")
             //};
 
-            return ReadBeers();
+            return ReadBeers(); //return beers from csv instead of hard coded list
         }
 
+        /// <summary>
+        /// Reads the embedded csv file beerlist.csv (in Assets folder)
+        /// Returns a list of all beers in the file.
+        /// </summary>
+        /// <returns></returns>
         private static List<Beer> ReadBeers()
         {
             List<Beer> beerlist = new List<Beer>();
 
             var assembly = typeof(Beer).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("LAB01_DEMO.Assets.beerlist.csv");
+            Stream stream = assembly.GetManifestResourceStream("Demo_ReadCsv.Assets.beerlist.csv");
 
             using (var reader = new System.IO.StreamReader(stream))
             {

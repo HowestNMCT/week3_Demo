@@ -8,6 +8,6 @@
 
     <!-- ListView: show a list of objects -->
     <!--    x:Name: name of the control te access it from code (MainPage.xaml.cs) -->
-    <ListView x:Name="lstBeers" ItemSelected="lstBeers_ItemSelected" Margin="8,16" />
+    <ListView x:Name="lvwBeers" ItemSelected="lvwBeers_ItemSelected" Margin="8,16" />
 
 </ContentPage>

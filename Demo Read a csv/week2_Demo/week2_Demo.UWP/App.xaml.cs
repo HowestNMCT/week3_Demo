@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace week2_Demo.UWP
+namespace Demo_ReadCsv.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

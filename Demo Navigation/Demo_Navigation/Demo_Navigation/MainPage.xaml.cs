@@ -35,12 +35,12 @@ namespace Demo_Navigation
             List<Beer> allBeers = Beer.GetBeers();
 
             //print all beers to output window using PrintBeers method
-            lstBeers.ItemsSource = allBeers;
+            lvwBeers.ItemsSource = allBeers;
         }
 
-        private void lstBeers_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void lvwBeers_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            NavigateToDetails(lstBeers.SelectedItem as Beer);
+            NavigateToDetails(lvwBeers.SelectedItem as Beer);
         }
 
         private void NavigateToDetails(Beer beer)

@@ -7,8 +7,8 @@
     <ProjectGuid>{4385C513-4BA1-4710-A71C-852886F2FF30}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>week2_Demo.UWP</RootNamespace>
-    <AssemblyName>week2_Demo.UWP</AssemblyName>
+    <RootNamespace>Demo_ReadCsv.UWP</RootNamespace>
+    <AssemblyName>Demo_ReadCsv.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>

@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace week2_Demo
+namespace Demo_ReadCsv
 {
     public partial class App : Application
     {
@@ -13,7 +13,7 @@ namespace week2_Demo
         {
             InitializeComponent();
 
-            MainPage = new week2_Demo.MainPage();
+            MainPage = new Demo_ReadCsv.MainPage();
         }
 
         protected override void OnStart()

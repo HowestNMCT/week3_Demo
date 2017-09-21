@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace week2_Demo.iOS
+namespace Demo_ReadCsv.iOS
 {
     public class Application
     {
