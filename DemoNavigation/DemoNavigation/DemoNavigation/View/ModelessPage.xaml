@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--NavigationPage.BackButtonTitle  :   only affects iOS (Android and Windows do not show text)-->
+<!--NavigationPage.HasBackButton    :   removes the back button, forcing you to apply a back button yourself-->
+<!--NavigationPage.HasNavigationBar :   hide the navigation bar-->
+<!--NavigationPage.TitleIcon        :   only affects iOS and Android; not visible on Windows-->
+    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoNavigation.View.ModelessPage"
+             Title="Modeless title"
+             NavigationPage.BackButtonTitle="go back"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.HasNavigationBar="True">
+
+    <ContentPage.Content>
+        <StackLayout Margin="16">
+            <Label Text="This is your favorite modeless page. You can go back to the main page whenever / however you want." />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

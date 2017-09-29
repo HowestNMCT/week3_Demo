@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA003EEF-6A61-483C-97D4-D0882447EEFB}</ProjectGuid>
+    <ProjectGuid>{00EA32FB-D67D-44EA-99C3-9ECCF49F6FE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo_ReadCsv</RootNamespace>
-    <AssemblyName>Demo_ReadCsv</AssemblyName>
+    <RootNamespace>Demo_TabbedPage</RootNamespace>
+    <AssemblyName>Demo_TabbedPage</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
@@ -43,8 +43,18 @@
     </Compile>
     <Compile Include="Model\Beer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\BeerOverview.xaml.cs">
+      <DependentUpon>BeerOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BreweryOverview.xaml.cs">
+      <DependentUpon>BreweryOverview.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -66,7 +76,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
+    <EmbeddedResource Include="View\BeerOverview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\BreweryOverview.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

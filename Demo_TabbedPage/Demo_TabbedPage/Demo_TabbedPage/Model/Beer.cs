@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -7,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo_ReadCsv.Model
+namespace Demo_MasterDetail.Model
 {
     //make class public
     public class Beer
@@ -50,13 +51,13 @@ namespace Demo_ReadCsv.Model
 
         //2. CONSTRUCTORS
 
-        //empty constructor
+        //empty ctor
         public Beer()
         {
 
         }
 
-        //second constructor - each parameter has an explicit type
+        //each parameter has an explicit type
         public Beer(string name, string brewery, double alcoholPerc, string color)
         {
             this.Name = name;
@@ -84,10 +85,10 @@ namespace Demo_ReadCsv.Model
             //    new Beer("Rodenbach Grand Cru", "Rodenbach", 6, "brown"),
             //    new Beer("Jupiler", "InBev", 5.2, "blond"),
             //    new Beer("Omer", "Bockor", 8, "blond"),
+            //    new Beer("PartyBeer", "SomeBrewery", 0, "blond"),
             //    new Beer("Duvel", "Duvel Moortgat", 8.5, "")
             //};
-
-            return ReadBeers(); //return beers from csv instead of hard coded list
+            return ReadBeers(); //return list from csv instead of hard coded list
         }
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace Demo_ReadCsv.Model
             List<Beer> beerlist = new List<Beer>();
 
             var assembly = typeof(Beer).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("Demo_ReadCsv.Assets.beerlist.csv");
+            Stream stream = assembly.GetManifestResourceStream("Demo_TabbedPage.Assets.beerlist.csv");
 
             using (var reader = new System.IO.StreamReader(stream))
             {
@@ -137,59 +138,26 @@ namespace Demo_ReadCsv.Model
             return beerlist;
         }
 
-        /// <summary>
-        /// Get the list of beers back filtered on alcohol percentage.
-        /// </summary>
-        /// <param name="beers">The full list of beers to be filtered.</param>
-        /// <param name="min">The minimum alcohol percentage of the beer.</param>
-        /// <param name="max">The maximum alcohol percentage of the beer.</param>
-        /// <returns>The filtered list of beers.</returns>
-        public static List<Beer> SearchByAlcohol(List<Beer> beers, double min, double max)
+        public static List<Beer> GetBeersFiltered(bool isAlcoholFree)
         {
-            //create empty list to hold filtered beers 
-            List<Beer> results = new List<Beer>();
+            List<Beer> filteredBeers = new List<Beer>();
 
-            //loop through each beer in the beers list
-            //  (Python: for beer in beers: )
-            foreach (Beer beer in beers)
-            {
-                //check if alcohol percentage of the beer is between boundaries
-                if (beer.Alcohol >= min && beer.Alcohol <= max)
-                {
-                    //if so, add the beer to the list of results
-                    results.Add(beer);
-                }
-            }
+            foreach (Beer beer in GetBeers())
+                if ((beer.Alcohol == 0) == isAlcoholFree) //check if (not) alcohol free
+                    filteredBeers.Add(beer);
 
-            //return the list of results
-            return results;
+            return filteredBeers;
         }
 
-        /// <summary>
-        /// Get the list of beers back filtered on (part of the) name.
-        /// </summary>
-        /// <param name="beers">Full list of beers to be filtered.</param>
-        /// <param name="searchTerm">(Part of) the name of the beer(s) to search for</param>
-        /// <returns></returns>
-        public static List<Beer> SearchByName(List<Beer> beers, string searchTerm)
+        public static IEnumerable GetBreweries()
         {
-            //create empty list to hold filtered beers 
-            List<Beer> results = new List<Beer>();
+            List<string> breweries = new List<string>();
 
-            //loop through each beer in the beers list
-            //  (Python: for beer in beers: )
-            foreach (Beer beer in beers)
-            {
-                //check if the name in lowercase contains the lowercase characters in searchterm 
-                if (beer.Name.ToLower().Contains(searchTerm.ToLower()))
-                {
-                    //if so, add the beer to the list of results
-                    results.Add(beer);
-                }
-            }
+            foreach (Beer beer in GetBeers())
+                if (!breweries.Contains(beer.Brewery))
+                    breweries.Add(beer.Brewery);
 
-            //return the list of results
-            return results;
+            return breweries;
         }
     }
 }
