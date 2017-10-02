@@ -6,14 +6,16 @@
              x:Class="Demo_MasterDetail.MainPage">
 
     <MasterDetailPage.Master>
-        <!--list of filters (all, alcohol free, alcoholic)-->
+        <!--master page: list of filters (all, alcohol free, alcoholic)-->
         <ContentPage Title="Beer filters">
             <ListView Margin="16" x:Name="lvwFilters" ItemSelected="LvwFilters_ItemSelected" />
         </ContentPage>
     </MasterDetailPage.Master>
+    
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
+                <!--reference to the detail page-->
                 <view:DetailPage_Overview x:Name="detailPage" />
             </x:Arguments>
         </NavigationPage>
