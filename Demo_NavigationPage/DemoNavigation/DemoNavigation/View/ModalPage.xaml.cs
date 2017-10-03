@@ -45,10 +45,10 @@ namespace DemoNavigation.View
         //      since this is a modal page, we want to prevent this button from working
         protected override bool OnBackButtonPressed()
         {
-            if (canGoBack)
-                return base.OnBackButtonPressed();
+            if (canGoBack) //check if user can go back yet
+                return base.OnBackButtonPressed();  //return to previous page
             else
-                return true;
+                return true;    //prevent returning to previous page
         }
 
         private void btnGoBack_Clicked(object sender, EventArgs e)
